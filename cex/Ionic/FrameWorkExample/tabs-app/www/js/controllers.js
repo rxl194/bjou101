@@ -1,5 +1,25 @@
 angular.module('starter.controllers', [])
 
+.controller('WallController', function($scope) {
+  // var postsDatabaseRef = new Firebase("https://luminous-inferno-8905.firebaseio.com").child('posts');
+  // var postsData = $firebaseArray(postsDatabaseRef);
+  var postsData = [];
+
+  $scope.post = {
+    message : ''
+  };
+
+  $scope.posts = postsData;
+
+  $scope.addPost = function () {
+    $scope.posts.$add($scope.post);
+
+    $scope.post = {
+      message: ''
+    };
+  };
+})
+  
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
