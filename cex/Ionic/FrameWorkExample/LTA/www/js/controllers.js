@@ -41,12 +41,37 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope, $http) {
+.controller('PlaylistsCtrl', function($scope, $http, $ionicPopover, $ionicModal) {
+
+  $ionicModal.fromTemplateUrl('templates/modal.html', {
+      scope: $scope
+  }).then(function(modal) {
+      $scope.modal = modal;
+  });
+
+  $scope.openModal = function() {
+      $scope.modal.show();
+  };
+
+  $scope.closeModal = function() {
+      $scope.modal.hide();
+  };  
+  
   $scope.sites = [];
   $http.get('/sites.json')
   .then(function (response) {
     $scope.sites = response.data;
   });
+  
+  $ionicPopover.fromTemplateUrl('templates/popover.html', {
+    scope: $scope
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });  
+  
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };  
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
