@@ -5,6 +5,28 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
 
+.controller('BucketListController', function ($scope) {
+  $scope.bucketListItem = {
+    title : ''
+  };
+
+  $scope.bucketListItems = [];
+
+  $scope.addBucketListItem = function () {
+    //Add Current Bucket List Item To The Front Of Our Bucket List Items Array
+    $scope.bucketListItems.unshift($scope.bucketListItem);
+    //Clear Current Bucket List For Next Entry
+    $scope.bucketListItem = {
+      title: ''
+    };
+  };
+
+  $scope.deleteBucketListItem = function (index) {
+    $scope.bucketListItems.splice(index, 1);
+  };
+
+})
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
