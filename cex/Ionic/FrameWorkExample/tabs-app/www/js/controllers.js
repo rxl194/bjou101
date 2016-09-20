@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
-.controller('WallController', function($scope) {
-  // var postsDatabaseRef = new Firebase("https://luminous-inferno-8905.firebaseio.com").child('posts');
+.controller('WallController', function($scope, $firebaseArray) {
+  // var postsDatabaseRef = new Firebase("https://<projectid>.firebaseio.com").child('posts');
   // var postsData = $firebaseArray(postsDatabaseRef);
   var postsData = [];
 
@@ -12,7 +12,8 @@ angular.module('starter.controllers', [])
   $scope.posts = postsData;
 
   $scope.addPost = function () {
-    $scope.posts.$add($scope.post);
+    // $scope.posts.$add($scope.post);
+    $scope.posts.unshift($scope.post);
 
     $scope.post = {
       message: ''
