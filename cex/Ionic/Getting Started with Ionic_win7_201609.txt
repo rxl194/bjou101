@@ -1,0 +1,99 @@
+
+## Getting Started with Ionic
+## By: Rahat Khanna
+## Publisher: Packt Publishing
+## Pub. Date: January 18, 2016
+## Print ISBN-13: 978-1-78439-057-0
+## Web ISBN-13: 978-1-78439-994-8
+## Pages in Print Edition: 168
+
+
+/************************
+** For Android
+************************/
+$ download JavsSDK
+$ set up "PATH" and "JAVA_HOME"
+
+$ download ant at: http://ant.apache.org/bindownload.cgi
+$ wget http://mirrors.ibiblio.org/apache//ant/binaries/apache-ant-1.9.7-bin.zip
+$ set up "PATH" and 
+  "ANT_HOME"="C:\apache-ant-1.9.7"
+   PATH=...:%ANT_HOME%\bin:...
+
+
+/************************
+** For Android SDK
+************************/
+$ download https://developer.android.com/studio/index.html#win-bundle
+//  Version: 2.1.3.0
+//  Release date: August 15, 2016
+
+$ Append Path:
+  Append the path with a path to the platform tools and tools folder of SDK.
+  For example,C:\Development\adt-bundle\sdk\platform-tools;C:\Development\adt-bundle\sdk\tools
+
+ 
+/************************
+** Install Node & NPM
+************************/
+// $ https://nodejs.org/dist/v4.5.0/node-v4.5.0-x64.msi
+$ wget https://nodejs.org/dist/v4.5.0/node-v4.5.0-win-x64.7z
+$ wget https://nodejs.org/dist/v4.5.0/win-x64/node_pdb.7z
+$ ADD "C:\node-v4.5" to PATH  
+
+$ node -v
+  v4.5.0
+$ npm -v
+  2.15.9
+
+/************************
+** Cordova CLI and Ionic CLI
+************************/
+$ npm install -g cordova
+$ cordova -v
+  6.3.1
+
+$ npm install -g ionic
+
+/************************
+** Basic Ionic CLI commands
+************************/
+$ ionic info
+
+   Cordova CLI: 6.3.1
+   Ionic CLI Version: 2.0.0
+   Ionic App Lib Version: 2.0.0-beta.20
+   OS: Windows 7 SP1
+   Node Version: v4.5.0
+
+$ ionic docs <TOPIC>
+$ ionic start [OPTIONS] <PATH> [template]
+$ ionic serve [OPTIONS]
+$ ionic platform [OPTIONS] <PLATFORM>
+$ ionic run [OPTIONS] <PLATFORM>
+$ ionic build [OPTIONS] <PLATFORM>
+$ ionic browser list
+$ ionic browser add crosswalk
+$ ionic browser revert <PLATFORM>
+$ ionic browser rm crosswalk
+
+
+/************************
+** Building a dummy app
+************************/
+$ ionic start MyFirstApp
+
+$ cd MyFirstApp
+$ ionic platform add android
+$ ionic build android
+// Create API23 Nexus5 
+$ ionic avd 
+
+// 3. test the app
+$ ionic serve
+// listen to all ips
+$ ionic serve -a 
+
+$ ionic run ios
+$ ionic run android
+
