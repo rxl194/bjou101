@@ -13,6 +13,7 @@
 ************************/
 $ download JavsSDK
 $ set up "PATH" and "JAVA_HOME"
+//  C:\Program Files\Java\jdk1.8.0_102
 
 $ download ant at: http://ant.apache.org/bindownload.cgi
 $ wget http://mirrors.ibiblio.org/apache//ant/binaries/apache-ant-1.9.7-bin.zip
@@ -31,6 +32,13 @@ $ download https://developer.android.com/studio/index.html#win-bundle
 $ Append Path:
   Append the path with a path to the platform tools and tools folder of SDK.
   For example,C:\Development\adt-bundle\sdk\platform-tools;C:\Development\adt-bundle\sdk\tools
+
+$ setenv ANDROID_HOME=SDK_PATH;
+// C:\Development\adt-bundle\sdk
+
+// 
+$ android
+$ android avd
 
  
 /************************
@@ -80,12 +88,23 @@ $ ionic browser rm crosswalk
 
 
 /************************
+** Setting up an Emulator
+************************/
+
+$ cordova run --list
+
+
+
+
+/************************
 ** Building a dummy app
 ************************/
 $ ionic start MyFirstApp
 
 $ cd MyFirstApp
 $ ionic platform add android
+//$ ionic platform add ios
+
 $ ionic build android
 // Create API23 Nexus5 
 $ ionic avd 
@@ -95,6 +114,20 @@ $ ionic serve
 // listen to all ips
 $ ionic serve -a 
 
+$ ionic emulate android
+$ ionic emulate ios
+
+
 $ ionic run ios
 $ ionic run android
+
+/************************
+** Android Platform Guide
+** http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html
+************************/
+
+// check version of cordova-android package is installed 
+$ cd MyFirstApp
+$ cordova platform ls
+  android 5.2.2 // Support API 14-23
 
