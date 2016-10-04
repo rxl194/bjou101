@@ -18,8 +18,8 @@ $ ionic info
 $ firebase version
   3.0.8
 
-$ ionic start FbChat blank
-$ cd FbChat 
+$ ionic start FriendChat tabs
+$ cd FriendChat 
 $ ionic serve
 
 $ ionic platform add android
