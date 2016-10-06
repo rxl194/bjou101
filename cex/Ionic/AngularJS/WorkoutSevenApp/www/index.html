@@ -2,8 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+    <title>7 Minute Workout</title>
 
     <link rel="manifest" href="manifest.json">
 
@@ -16,8 +17,11 @@
       }
     </script>-->
 
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet" type="text/css">    
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet"  />
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -31,15 +35,21 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="js/7MinWorkout/workout.js"></script>
   </head>
-  <body ng-app="starter">
+  <body ng-app="WorkoutSevenApp" >
 
     <ion-pane>
       <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
+        <h1 class="title">7 Minute Workout</h1>
       </ion-header-bar>
       <ion-content>
+        <div class="container body-content app-container" ng-controller="WorkoutController">
+            <pre>Current Exercise: {{currentExercise | json}}</pre>
+            <pre>Time Left: {{currentExercise.duration-currentExerciseDuration}}</pre>
+        </div>      
       </ion-content>
     </ion-pane>
+    
   </body>
 </html>
