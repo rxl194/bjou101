@@ -26,5 +26,7 @@ $ ionic platform add android
 $ ionic run android
 
 $ firebase init
+$ firebase login
 $ firebase serve
+$ firebase deploy
 
