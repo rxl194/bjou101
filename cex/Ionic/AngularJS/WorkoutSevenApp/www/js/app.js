@@ -23,4 +23,31 @@ angular.module('WorkoutSevenApp', ['ionic', '7minWorkout'])
   });
 })
 
+.config(['$stateProvider', '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider) {
+
+    $stateProvider
+    
+    .state('start', {
+      url: "/start",
+      templateUrl: "partials/start.html"
+    })
+    
+    .state('workout', {
+      url: "/workout",
+      templateUrl: "partials/workout.html",
+      controller: 'WorkoutController'
+    })
+
+    .state('finish', {
+      url: "/finish",
+      templateUrl: "partials/finish.html"
+    })    
+    
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/start');    
+    
+  }
+])
+
 angular.module('7minWorkout', []);
