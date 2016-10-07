@@ -23,8 +23,8 @@ angular.module('WorkoutSevenApp', ['ionic', '7minWorkout'])
   });
 })
 
-.config(['$stateProvider', '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$sceDelegateProvider',
+  function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
 
     $stateProvider
     
@@ -46,7 +46,13 @@ angular.module('WorkoutSevenApp', ['ionic', '7minWorkout'])
     
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/start');    
-    
+   
+    $sceDelegateProvider.resourceUrlWhitelist([
+      // Allow same origin resource loads.
+      'self',
+      // Allow loading from our assets domain.  Notice the difference between * and **.
+      'http://*.youtube.com/**']);
+      
   }
 ])
 
