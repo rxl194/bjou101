@@ -121,6 +121,19 @@ angular.module('IonicChatApp', ['ionic', 'chatapp.controllers', 'chatapp.service
         return FBFactory.auth().$requireSignIn();
       }]
     }
+  })  
+
+  .state('file-upload', {
+    url: '/fileupload',
+    templateUrl: 'templates/file-upload.html',
+    controller: 'FileUploadCtrl',
+    cache: false,
+    resolve: {
+      'currentAuth': ['FBFactory', 'Loader', function(FBFactory, Loader) {
+        Loader.show('Checking Auth..');
+        return FBFactory.auth().$requireSignIn();
+      }]
+    }
   });  
 
   // if none of the above states are matched, use this as the fallback

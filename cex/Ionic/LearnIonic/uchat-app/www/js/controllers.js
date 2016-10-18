@@ -134,8 +134,8 @@ angular.module('chatapp.controllers', [])
     });
 }])
 
-.controller('ChatDetailCtrl', ['$scope', 'Loader', '$ionicPlatform', '$stateParams', 'UserFactory', 'FBFactory', '$ionicScrollDelegate', '$cordovaImagePicker', 'Utils', '$timeout', '$ionicActionSheet', '$cordovaCapture', '$cordovaGeolocation', '$ionicModal',
-    function ($scope, Loader, $ionicPlatform, $stateParams, UserFactory, FBFactory, $ionicScrollDelegate, $cordovaImagePicker, Utils, $timeout, $ionicActionSheet, $cordovaCapture, $cordovaGeolocation, $ionicModal) {
+.controller('ChatDetailCtrl', ['$scope', 'Loader', '$ionicPlatform', '$stateParams', 'UserFactory', 'FBFactory', '$ionicScrollDelegate', '$cordovaImagePicker', 'Utils', '$timeout', '$ionicActionSheet', '$cordovaCapture', '$cordovaGeolocation', '$ionicModal', '$state',
+    function ($scope, Loader, $ionicPlatform, $stateParams, UserFactory, FBFactory, $ionicScrollDelegate, $cordovaImagePicker, Utils, $timeout, $ionicActionSheet, $cordovaCapture, $cordovaGeolocation, $ionicModal, $state) {
         $ionicPlatform.ready(function () {
             Loader.show('Establishing Connection...');
             // controller code here..
@@ -195,6 +195,10 @@ angular.module('chatapp.controllers', [])
                                 maximumImagesCount: 1
                             };
                             var isBrowser = $ionicPlatform.is('browser');
+                            if ( isBrowser ) {
+                                $state.go('file-upload');
+                                return true;
+                            }
                             $cordovaImagePicker.getPictures(options)
                                 .then(function (results) {
                                     if(results.length > 0) {
@@ -318,6 +322,13 @@ angular.module('chatapp.controllers', [])
             UserFactory.cleanPresenceId();
             $state.go('main');
         }
+
+    }
+])
+
+.controller('FileUploadCtrl', ['$scope', 
+    function ($scope) {
+
 
     }
 ]);
