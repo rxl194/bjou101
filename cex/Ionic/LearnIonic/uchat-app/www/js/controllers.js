@@ -1,4 +1,4 @@
-angular.module('chatapp.controllers', ['ngFileUpload'])
+angular.module('chatapp.controllers', ['ngFileUpload', 'ngImgCrop'])
 
 .run(['FBFactory', '$rootScope', 'UserFactory', 'Utils',
     function (FBFactory, $rootScope, UserFactory, Utils) {
@@ -331,17 +331,9 @@ angular.module('chatapp.controllers', ['ngFileUpload'])
     $ionicPlatform.ready(function () {
       Loader.hide();
       
-      // upload later on form submit or something similar
-      $scope.submit = function() {
-        if (this.form.file.$valid && this.file) {
-          $scope.upload(this.file);
-        }
-      };
-      
-      // upload on file select or drop
-      $scope.upload = function (file) {
-        var imgFileRef = FBFactory.imagesRef().child(file.$ngfName);
-        imgFileRef.put(file).then(function(snapshot) {
+      $scope.upload = function (dataUrl, name) {
+        var imgFileRef = FBFactory.imagesRef().child(name);
+        imgFileRef.put(Upload.dataUrltoBlob(dataUrl, name)).then(function(snapshot) {
           console.log('Uploaded a blob or file!');
         });        
       };
