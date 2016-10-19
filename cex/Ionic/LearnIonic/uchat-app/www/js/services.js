@@ -66,6 +66,10 @@ angular.module('chatapp.services', [])
       chatRef: function(loggedInUser, OtherUser) {
         var chatRef = firebase.database().ref().child('chats/chat_' + Utils.getHash(OtherUser, loggedInUser));
         return $firebaseArray(chatRef);
+      },
+      
+      imagesRef: function() {
+        return firebase.storage().ref().child('images');
       }
       
     };
