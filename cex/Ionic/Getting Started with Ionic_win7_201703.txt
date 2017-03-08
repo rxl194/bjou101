@@ -1,0 +1,75 @@
+
+## Getting Started with Ionic
+## By: Rahat Khanna
+## Publisher: Packt Publishing
+## Pub. Date: January 18, 2016
+## Print ISBN-13: 978-1-78439-057-0
+## Web ISBN-13: 978-1-78439-994-8
+## Pages in Print Edition: 168
+
+/************************
+** Install Node & NPM
+************************/
+// $ https://nodejs.org/dist/v4.5.0/node-v4.5.0-x64.msi
+// $ wget https://nodejs.org/dist/v4.5.0/node-v4.5.0-win-x64.7z
+// $ wget https://nodejs.org/dist/v4.5.0/win-x64/node_pdb.7z
+$ ADD "D:\py\node-v6.10" to PATH  
+
+$ node -v
+  v6.10.0
+$ npm -v
+  3.10.10
+
+/************************
+** Cordova CLI and Ionic CLI
+************************/
+$ npm install -g cordova
+$ cordova -v
+  6.5.0
+
+$ npm install -g ionic
+
+/************************
+** Basic Ionic CLI commands
+************************/
+$ ionic info
+
+   Cordova CLI: 6.5.0
+   Ionic CLI Version: 2.2.1
+   Ionic App Lib Version: 2.2.0
+   OS: Windows 10
+   Node Version: v6.10.0
+
+$ ionic docs <TOPIC>
+$ ionic start [OPTIONS] <PATH> [template]
+$ ionic serve [OPTIONS]
+$ ionic platform [OPTIONS] <PLATFORM>
+$ ionic run [OPTIONS] <PLATFORM>
+$ ionic build [OPTIONS] <PLATFORM>
+$ ionic browser list
+$ ionic browser add crosswalk
+$ ionic browser revert <PLATFORM>
+$ ionic browser rm crosswalk
+
+// List the starter templates available:
+$ ionic start –-list
+
+/************************
+** Building a dummy app
+************************/
+$ ionic start MyFirstApp
+
+$ cd MyFirstApp
+$ ionic platform add android
+$ ionic build android
+// Create API23 Nexus5 
+$ ionic avd 
+
+// 3. test the app
+$ ionic serve
+// listen to all ips
+$ ionic serve -a 
+
+$ ionic run ios
+$ ionic run android
+
